@@ -1,0 +1,8 @@
+prefix=/home/staff/peng/ros_ws/devel
+
+Name: llm_move
+Description: Description of llm_move
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

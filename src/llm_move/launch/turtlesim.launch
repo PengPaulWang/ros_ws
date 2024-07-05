@@ -1,0 +1,26 @@
+<launch>
+    <!-- Start the turtlesim node -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen" />
+    
+    <!-- topics
+        /turtle1/cmd_vel
+        /turtle1/color_sensor
+        /turtle1/pose
+    -->
+
+    <!-- http://wiki.ros.org/turtlesim
+        Subscribed Topics
+            turtleX/cmd_vel (geometry_msgs/Twist)
+            The linear and angular command velocity for turtleX. The turtle will execute a velocity command for 1 second then time out. 
+            Twist.linear.x is the forward velocity, Twist.linear.y is the strafe velocity, and Twist.angular.z is the angular velocity.
+        Published Topics
+            turtleX/pose (turtlesim/Pose)
+            The x, y, theta, linear velocity, and angular velocity of turtleX.
+    -->
+
+    <!-- Start the demo.py script -->
+    <node pkg="llm_move" type="turtle.py" name="turtle_controller" output="screen">
+        <param name="cmd_vel" value="/turtle1/cmd_vel" />
+        <param name="pose" value="/turtle1/pose" />
+    </node>
+</launch>
